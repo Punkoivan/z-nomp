@@ -1,6 +1,7 @@
-!node_modules/stratum-pool/lib/transactions.js
-node_modules/
+node_modules/lib/string*
+node_modules/lib/[a-p]*
 .idea/
+!node_modules/stratum-pool/lib/transactions.js
 config.json
 pool_configs/*.json
 !pool_configs/zclassic_example.json
