@@ -1,3 +1,4 @@
+!node_modules/stratum-pool/lib/transactions.js
 node_modules/
 .idea/
 config.json
