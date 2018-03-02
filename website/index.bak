@@ -21,7 +21,7 @@
     <script src="/static/main.js"></script>
     <link rel="stylesheet" href="/static/style.css">
 
-   <title>Snowgem mining pool</title>
+    <title>VoteCoin mining pool</title>
 
 </head>
 
@@ -31,36 +31,30 @@
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
 
         <a class="pure-menu-heading hot-swapper" href="/"><i class="fa fa-home"></i>&nbsp;</a>
-         
+
         <ul>
-             <li class="pure-menu">
-                 <a href="http://nibirupool.com">
-                   <i class="fa fa-heart"></i>&nbsp;
-                    Home
+            <li class="{{? it.selected === 'getting_started' }}pure-menu-selected{{?}}">
+                <a class="hot-swapper" href="/getting_started">
+                    <i class="fa fa-rocket"></i>&nbsp;
+                    Getting Started
                 </a>
-             </li>
-             <li class="pure-menu">
-                 <a href="https://nibirupool.com/?p=451">
-                   <i class="fa fa-play"></i>&nbsp;
-                    Miner setup
-                </a>
-             </li>
+            </li>
             <li class="{{? it.selected === 'stats' }}pure-menu-selected{{?}}">
                 <a class="hot-swapper" href="/stats">
                     <i class="fa fa-bar-chart-o"></i>&nbsp;
                     Graph Stats
                 </a>
             </li>
-            <li class="{{? it.selected === 'workers' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/workers">
-                    <i class="fa fa-cogs"></i>&nbsp;
-                    Workers Stats
-                </a>
-            </li>
             <li class="{{? it.selected === 'tbs' }}pure-menu-selected{{?}}">
                 <a class="hot-swapper" href="/tbs">
                     <i class="fa fa-table"></i>&nbsp;
                     Tab Stats
+                </a>
+            </li>
+            <li class="{{? it.selected === 'workers' }}pure-menu-selected{{?}}">
+                <a class="hot-swapper" href="/workers">
+                    <i class="fa fa-cogs"></i>&nbsp;
+                    Workers Stats
                 </a>
             </li>
             <li class="{{? it.selected === 'payments' }}pure-menu-selected{{?}}">
@@ -84,23 +78,10 @@
 </main>
 
 <footer>
-    <div>
-        This site is powered by the open source z-nomp project created by Joshua Yabut and the Zclassic Community and is licensed under the MIT License</a>
-    </div>
-        Nibiru group © 2017 All rights reserved
-    <div>
-    </div>
-        <div id="communityFooter">
-        </div>   
-        <center>
-Follow us on <a href="https://twitter.com/nibirupool" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>,
-Join our <a href="https://t.me/nibirupool" target="_blank"><i class="fa fa-telegram"></i> Telegram </a>chat
-and <a href="https://discord.gg/NfMXAtE" target="_blank"><i class="fa fa-discord"></i> Discord</a> server
-        </center>
-        <div>
-        </div>
-
+<div id="communityFooter">
+<a href="https://t.me/joinchat/EB1PpQ69HVEe6TYKeKr63Q">#telegram chat</a>
+</div>
 </footer>
+
 </body>
 </html>
-

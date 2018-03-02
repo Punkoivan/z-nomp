@@ -21,19 +21,15 @@
         margin-bottom: 18px;
     }
     .poolLabel {
-        font-size: 1.2em;
+        font-size: 1.5em;
         text-align: center;
         padding: 4px;
     }
     .poolMinerTable {
-        
     }
     table {
-        text-align: center;
+        font-size: 0.6em;
         width: 100%;
-    }
-    tbody tr:hover {
-    background: #dfe7ed;
     }
 </style>
 <script type="text/javascript">
@@ -82,8 +78,8 @@
             <a href="https://explorer.myhush.org/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
           {{ } else if (String(it.stats.pools[pool].name).startsWith("zen")) { }}
             <a href="http://node1.zenchain.info:8886/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-          {{ } else if (String(it.stats.pools[pool].name).startsWith("snowgem")) { }}
-            <a href="https://explorer.snowgem.org/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+          {{ } else if (String(it.stats.pools[pool].name).startsWith("votecoin")) { }}
+            <a href="http://explorer.votecoin.site/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
 
           {{ } else { }}
           {{=it.stats.pools[pool].payments[p].blocks}}

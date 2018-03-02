@@ -68,19 +68,23 @@
     }
 
     .miningOption:first-child{
-        background-color: #0eafc7;
+        background-color: #2d2d2d;
+        opacity: 0.7;
     }
     .miningOption:last-child{
-        background-color: #b064e1;
+        background-color: #2d2d2d;
+        opacity: 0.7;
     }
     .miningOptionNum{
         font-size: 6em;
         padding-right: 20px;
         width: 140px;
         text-align: center;
+        opacity: 0.7;
     }
     .miningOptionInstructions{
         flex: 1 1 auto;
+        opacity: 0.7;
     }
 
     .miningOptionInstructions > div:first-child{
@@ -128,7 +132,8 @@
         left: 50%;
         margin-left: -375px;
         position: absolute;
-        background-color: #f06350;
+        background-color: #960931;
+        opacity: 0.9;
     }
     #coinInfo .coinInfoName{
         text-transform: capitalize;
@@ -225,21 +230,8 @@
             {{ } }}
         </div>
     </div>
-
-    <div id="main">
-        <a href="#" class="miningOption" id="nompAppDownload">
-            <div class="miningOptionNum">1.</div>
-            <div class="miningOptionInstructions">
-                <div>Download NOMP App</div>
-                <div>Our preconfigured app makes mining that easy</div>
-            </div>
-        </a>
-        <div id="orHolder">
-            <div id="orLine"></div>
-            <div id="orText">or</div>
-        </div>
         <a href="#" class="miningOption" id="coinGlowTrigger">
-            <div class="miningOptionNum">2.</div>
+            <div class="miningOptionNum"></div>
             <div class="miningOptionInstructions">
                 <div>Select a coin for connection details</div>
                 <div>Configurations for each coin are available for advanced miners</div>
@@ -262,8 +254,11 @@
             <div id="coinInfoUsername"></div>
             <div>anything</div>
         </div>
+         </div> 
+<center>8888 port default difficulty 0.5 (min 0.04) with autoadjust, for CPU, 1-20 GPU</center>
+<center>9999 port default difficulty 2.0 with autoadjust, for Miningrigrentials, Nicehash, >20 GPU rigs</center>
+<center><p>7777 port default difficulty 0.5 (min 0.04) with autoadjust, for CPU, 1-20 GPU with TLS/SSL support</p></center>
     </div>
-</div>
 
 <script>
 

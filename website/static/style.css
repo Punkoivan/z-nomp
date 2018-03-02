@@ -51,15 +51,32 @@ main{
 
 footer{
     text-align: center;
-    color: #b3b3b3;
+    color: #c0c0c0;
     text-decoration: none;
     font-size: 0.8em;
     padding: 15px;
     line-height: 24px;
 }
 
+.telegram{
+    text-align: center;
+    color: #0088cc;
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 15px;
+    line-height: 24px;
+}
+
+.telegram a{
+    font-size: 1.5em;
+    color: #0088cc;
+    text-decoration: none;
+}
+
+
 footer a{
-    color: #fff;
+    font-size: 1.3em;
+    color: #c0c0c0;
     text-decoration: none;
 }
 

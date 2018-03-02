@@ -149,6 +149,9 @@
 						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
 						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                        {{ } else if (String(it.stats.pools[pool].name).startsWith("snowgem")) { }}
+                                                <a href="https://explorer.snowgem.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+
 					{{ } else { }}
                                             {{=block[2]}}
                                         {{ } }}
@@ -177,6 +180,8 @@
 						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
 						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                                        {{ } else if (String(it.stats.pools[pool].name).startsWith("snowgem")) { }}
+                                                <a href="https://explorer.snowgem.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
 						{{=block[2]}}
 					{{ } }}
@@ -203,7 +208,7 @@
     <div class="chartWrapper" style="text-align:center;">
         <div class="chartLabel">Finders of the last {{=blockscomb.length}} blocks</div>
         <div class="hidden" id="tooltip{{=pool}}"><p><span id="value{{=pool}}"></span> blocks found by <span id="finderr{{=pool}}"></span></p></div>
-        <div class="chartHolder" id="pie{{=pool}}"><svg id="blocksPie{{=pool}}" style="display: block; margin: auto; text-align:center;"/></div>
+        <div class="chartHolder" id="pie{{=pool}}"><svg id="blocksPie{{=pool}}" style="display: block; margin: auto; text-align: center;"/></div>
     </div>
 </div></center>
 
