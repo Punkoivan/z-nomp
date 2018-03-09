@@ -3,5 +3,5 @@ node_modules/lib/[a-p]*
 .idea/
 !node_modules/stratum-pool/lib/transactions.js
 config.json
-pool_configs/*.json
+!pool_configs/general_coin.json
 !pool_configs/zclassic_example.json

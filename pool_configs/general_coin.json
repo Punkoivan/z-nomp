@@ -1,0 +1,109 @@
+
+{
+    "enabled": true,
+    "coin": "general_coin.json",
+
+    "address": "COINBASE_ADDRESS",
+    "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
+
+    "zAddress": "Z_ADDRESS",
+    "_comment_zAddress": "a private address used to send coins to tAddress.",
+
+    "tAddress": "PAYMENTS_ADDRESS",
+    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
+
+    "invalidAddress":"INVALID_ADDRESS",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above",
+
+    "walletInterval": 2.5,
+
+    "rewardRecipients": {
+    "FEE_ADDRESS": 1
+       },
+    "tlsOptions": {
+        "enabled": ENABLE_TLS,
+        "serverKey":"/root/privkey.pem",
+        "serverCert":"/root/fullchain.pem",
+        "ca":""
+    },
+
+    "paymentProcessing": {
+	"minConf": 3,
+        "enabled": true,
+        "paymentMode": "pplnt",
+        "_comment_paymentMode":"prop, pplnt",
+        "paymentInterval": 20,
+        "minimumPayment": COIN_MINIMUM_PAY,
+        "maxBlocksPerPayment": 3,
+        "daemon": {
+            "host": "DAEMON_HOST",
+            "port": DAEMON_PORT,
+            "user": "DAEMON_USER",
+            "password": "DAEMON_PASSWORD"
+        }
+    },
+
+    "ports": {
+        "8888": {
+            "tls":false,
+            "diff": 0.5,
+            "varDiff": {
+                "minDiff": 0.04,
+                "maxDiff": 16,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        },
+		"7777": {
+            "tls":true,
+            "diff": 0.5,
+            "varDiff": {
+                "minDiff": 0.04,
+                "maxDiff": 16,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        },
+        "9999": {
+            "tls":false,
+            "diff": 2.5,
+            "varDiff": {
+                "minDiff":2.5,
+                "maxDiff": 16,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "DAEMON_HOST",
+            "port": DAEMON_PORT,
+            "user": "DAEMON_USER",
+            "password": "DAEMON_PASSWORD"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 19333,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "zcl",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    }
+
+}
