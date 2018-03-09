@@ -4,4 +4,4 @@ node_modules/lib/[a-p]*
 !node_modules/stratum-pool/lib/transactions.js
 !config.json
 !pool_configs/general_coin.json
-!pool_configs/zclassic_example.json
+!pool_configs/zcash.json
