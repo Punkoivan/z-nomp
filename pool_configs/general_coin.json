@@ -1,7 +1,7 @@
 
 {
     "enabled": true,
-    "coin": "general_coin.json",
+    "coin": "COIN_NAME_CONFIG.json",
 
     "address": "COINBASE_ADDRESS",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
