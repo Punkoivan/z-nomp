@@ -1,0 +1,6 @@
+{
+    "name": "COIN_NAME_CONFIG",
+    "symbol": "COIN_SYMBOL",
+    "algorithm": "ALGO",
+    "txfee": 0.0001
+}
