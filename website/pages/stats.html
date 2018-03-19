@@ -151,7 +151,8 @@
 						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                         {{ } else if (String(it.stats.pools[pool].name).startsWith("snowgem")) { }}
                                                 <a href="https://explorer.snowgem.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-
+					{{ } else if (String(it.stats.pools[pool].name).startsWith("safecoin")) { }}
+            					<a href="https://explorer.safecoin.org/block/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
 					{{ } else { }}
                                             {{=block[2]}}
                                         {{ } }}
@@ -184,6 +185,8 @@
 						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                                         {{ } else if (String(it.stats.pools[pool].name).startsWith("snowgem")) { }}
                                                 <a href="https://explorer.snowgem.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+		         		{{ } else if (String(it.stats.pools[pool].name).startsWith("safecoin")) { }}
+            					<a href="https://explorer.safecoin.org/block/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
 					{{ } else { }}
 						{{=block[2]}}
 					{{ } }}
