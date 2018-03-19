@@ -84,7 +84,7 @@
             <a href="http://node1.zenchain.info:8886/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
           {{ } else if (String(it.stats.pools[pool].name).startsWith("snowgem")) { }}
             <a href="https://explorer.snowgem.org/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-              {{ } else if (String(it.stats.pools[pool].name).startsWith("safecoin")) { }}
+          {{ } else if (String(it.stats.pools[pool].name).startsWith("safecoin")) { }}
             <a href="https://explorer.safecoin.org/tx/{{=it.stats.pools[pool].payments[p].txid}}"  title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
 
           {{ } else { }}
