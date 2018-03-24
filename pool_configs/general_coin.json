@@ -1,7 +1,7 @@
 
 {
     "enabled": true,
-    "coin": "COIN_NAME_CONFIG.json",
+    "coin": "general_coin.json",
 
     "address": "COINBASE_ADDRESS",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
@@ -46,10 +46,10 @@
     "ports": {
         "8888": {
             "tls":false,
-            "diff": 0.5,
+            "diff": NON_SSL_DIFF,
             "varDiff": {
-                "minDiff": 0.04,
-                "maxDiff": 16,
+                "minDiff": VAR_MIN_NON_SSL_DIFF,
+                "maxDiff": VAR_MAX_NON_SSL_DIFF,
                 "targetTime": 15,
                 "retargetTime": 60,
                 "variancePercent": 30
@@ -57,10 +57,10 @@
         },
 		"7777": {
             "tls":true,
-            "diff": 0.5,
+            "diff": SSL_DIFF,
             "varDiff": {
-                "minDiff": 0.04,
-                "maxDiff": 16,
+                "minDiff": VAR_MIN_SSL_DIFF,
+                "maxDiff": VAR_MAX_NON_SSL_DIFF,
                 "targetTime": 15,
                 "retargetTime": 60,
                 "variancePercent": 30
@@ -68,10 +68,10 @@
         },
         "9999": {
             "tls":false,
-            "diff": 2.5,
+            "diff": NICE_DIFF,
             "varDiff": {
-                "minDiff":2.5,
-                "maxDiff": 16,
+                "minDiff":VAR_MIN_NICE_DIFF,
+                "maxDiff": VAR_MAX_NICE_DIFF,
                 "targetTime": 15,
                 "retargetTime": 60,
                 "variancePercent": 30
