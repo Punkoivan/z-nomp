@@ -164,3 +164,5 @@ Credits
 License
 -------
 Released under the MIT License. See LICENSE file.
+
+Modified a little for our aims with variables.
