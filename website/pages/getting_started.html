@@ -1,313 +1,461 @@
+<script language="javascript">
+;( function( window ) {
+	
+	'use strict';
+
+	function extend( a, b ) {
+		for( var key in b ) { 
+			if( b.hasOwnProperty( key ) ) {
+				a[key] = b[key];
+			}
+		}
+		return a;
+	}
+
+	function CBPFWTabs( el, options ) {
+		this.el = el;
+		this.options = extend( {}, this.options );
+  		extend( this.options, options );
+  		this._init();
+	}
+
+	CBPFWTabs.prototype.options = {
+		start : 0
+	};
+
+	CBPFWTabs.prototype._init = function() {
+		
+		this.tabs = [].slice.call( this.el.querySelectorAll( 'nav > ul > li' ) );
+		this.items = [].slice.call( this.el.querySelectorAll( '.content-wrap > section' ) );
+		this.current = -1;
+		this._show();
+		this._initEvents();
+	};
+
+	CBPFWTabs.prototype._initEvents = function() {
+		var self = this;
+		this.tabs.forEach( function( tab, idx ) {
+			tab.addEventListener( 'click', function( ev ) {
+				ev.preventDefault();
+				self._show( idx );
+			} );
+		} );
+	};
+
+	CBPFWTabs.prototype._show = function( idx ) {
+		if( this.current >= 0 ) {
+			this.tabs[ this.current ].className = this.items[ this.current ].className = '';
+		}
+		
+		this.current = idx != undefined ? idx : this.options.start >= 0 && this.options.start < this.items.length ? this.options.start : 0;
+		this.tabs[ this.current ].className = 'tab-current';
+		this.items[ this.current ].className = 'content-current';
+	};
+
+	window.CBPFWTabs = CBPFWTabs;
+
+})( window );
+</script>
+	
 <style>
-    #holder{
-        display: flex;
-        flex-direction: row;
-    }
+  
+	body {
+	background: #e7ecea;
+	
+}
 
-    .glow{
-        box-shadow: inset 0 0 12px 4px #ff6c00;
-    }
+a {
+	color: #2CC185;
+	text-decoration: none;
+	outline: none;
+}
 
-    .hidden{
-        display: none !important;
-    }
+a:hover, a:focus {
+	color: #74777b;
+}
 
-    #menu{
-        background-color: #3d3d3d;
-        min-width: 170px;
-    }
 
-    #menu > .menuHeader{
-        color: #e3f7ff;
-        border-bottom: 1px solid #7f878b;
-        font-size: 1.2em;
-        padding: 16px 16px 4px 15px;
-    }
+.tabs {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 100%;
 
-    .menuList{
-        transition-duration: 200ms;
-    }
+}
 
-    .menuList > a:first-child{
-        margin-top: 10px;
-    }
 
-    .menuList > a{
-        display: block;
-        color: #e3f7ff;
-        text-decoration: none;
-        padding: 7px;
-        padding-left: 25px;
-        text-transform: capitalize;
-    }
 
-    .menuList > a:hover{
-        color: #f69b3a;
-    }
+.tabs nav ul {
+	position: relative;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: flex;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1200px;
+	list-style: none;
+	-ms-box-orient: horizontal;
+	-ms-box-pack: center;
+	-webkit-flex-flow: row wrap;
+	-moz-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+}
 
-    #main{
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-        margin: 18px;
-    }
-    .miningOption{
-        color: white;
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        min-height: 215px;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-    }
+.tabs nav ul li {
+	position: relative;
+	z-index: 1;
+	display: block;
+	margin: 0;
+	text-align: center;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
 
-    a.miningOption:hover{
-        color: #f69b3a;
-    }
+.tabs nav a {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 2.5;
+}
 
-    .miningOption:first-child{
-        background-color: #2d2d2d;
-        opacity: 0.7;
-    }
-    .miningOption:last-child{
-        background-color: #2d2d2d;
-        opacity: 0.7;
-    }
-    .miningOptionNum{
-        font-size: 6em;
-        padding-right: 20px;
-        width: 140px;
-        text-align: center;
-        opacity: 0.7;
-    }
-    .miningOptionInstructions{
-        flex: 1 1 auto;
-        opacity: 0.7;
-    }
+.tabs nav a span {
+	vertical-align: middle;
+	font-size: 0.75em;
+}
 
-    .miningOptionInstructions > div:first-child{
-        font-size: 2.4em;
-    }
-    .miningOptionInstructions > div:last-child{
-        margin-top: 20px;
+.tabs nav li.tab-current a {
+	color: #74777b;
+}
+
+.tabs nav a:focus {
+	outline: none;
+}
+
+
+
+/* Content */
+.content-wrap {
+	position: relative;
+}
+#section-flip-1{
+margin-left: 7px;
+}
+
+.content-wrap section {
+	display: none;
+	margin: 0 auto;
+	padding: 1em;
+	max-width: 1200px;
+	
+}
+
+.content-wrap section.content-current {
+	display: block;
+}
+
+.content-wrap section p {
+
+	padding: 0.75em 0;
+	color: white;
+	
+}
+
+
+.tabs-style-flip {
+	max-width: 1200px;
+	max-height: 270px;
+}
+
+.tabs-style-flip nav a {
+	padding: 0.5em 0;
+	color: #00BFFF;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.tabs-style-flip nav a:hover,
+.tabs-style-flip nav a:focus,
+.tabs-style-flip nav li.tab-current a {
+	color: #74777b;
+}
+
+.tabs-style-flip nav a span {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	font-size: 0.625em;
+}
+
+.tabs-style-flip nav a::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background-color: #f0f0f0;
+	content: '';
+	-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+	transition: transform 0.3s, background-color 0.3s;
+	-webkit-transform: perspective(900px) rotate3d(1,0,0,90deg);
+	transform: perspective(900px) rotate3d(1,0,0,90deg);
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-perspective-origin: 50% 100%;
+	perspective-origin: 50% 100%;
+}
+
+.tabs-style-flip nav li.tab-current a::after {
+	background-color: #fff;
+	-webkit-transform: perspective(900px) rotate3d(1,0,0,0deg);
+	transform: perspective(900px) rotate3d(1,0,0,0deg);
+}
+
+.tabs-style-flip .content-wrap {
+	background: #fff;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.boxLowerHeader{
         font-size: 1.3em;
+        margin: 0 0 5px 10px;
+		color: white;
     }
 
-    #orHolder{
-        height: 37px;
-        text-align: center;
-    }
-    #orLine{
-        border-bottom: 1px solid #c2cacf;
-        height: 19px;
-        margin-bottom: -13px;
-    }
-    #orText{
-        background-color: #ebf4fa;
-        color: #5c5c5c;
-        display: inline-block;
-        width: 35px;
-        font-style: italic;
-    }
 
-    #coinInfoBackground{
-        transition-duration: 400ms;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: black;
-        opacity: 0.0;
+    #boxStatsLeft{
+     
+border-radius: 8px;
+opacity:0.5;
+filter:alpha(opacity=50);
+-moz-opacity:O.2;
+background-color: #00CED1; 
+width:340px; 
+height:199px; 
+margin-left: -10px;
+z-index:-1;
     }
-    #coinInfo{
-        display: flex;
-        flex-direction: column;
-        color: white;
-        width: 750px;
-        min-height: 400px;
-        top: 50px;
-        left: 50%;
-        margin-left: -375px;
-        position: absolute;
-        background-color: #960931;
-        opacity: 0.9;
+	    #boxStatsRight{
+     margin-top: -199px;       
+border-radius: 8px;
+opacity:0.3;
+filter:alpha(opacity=50);
+-moz-opacity:O.S;
+background-color:#000000; 
+width:71%; 
+height:199px; 
+margin-left: 340px;
+z-index:-1;
     }
-    #coinInfo .coinInfoName{
-        text-transform: capitalize;
-    }
-    #coinInfo > div:first-of-type{
-        font-size: 1.8em;
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 35px;
-    }
-    #coinInfoRows{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex: 1 1 auto;
-        margin-bottom: 70px;
-    }
-    #coinInfoRows > div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    #coinInfoRows > div > div{
-        padding: 3px;
-    }
-    #coinInfoRowKeys{
-        font-weight: bold;
-        padding-right: 30px;
-    }
-    #coinInfoRowKeys .coinInfoSubtle{
-        font-weight: normal;
-    }
-    #coinInfoRowValues{
-
-    }
-    #coinInfoClose{
-        position: absolute;
-        font-size: 3em;
-        top: 0;
-        right: 0;
-        width: 60px;
-        height: 60px;
-        text-align: center;
-        color: white;
-        text-decoration: none;
-    }
-    #coinInfoClose:hover{
-        color: #50f0e3;
-    }
+.base_l{
+    color: black;
+	position:left;
+	padding-left: 10px;
+	padding-top: 8px;
+}
+.base_r{
+    color: white;
+	position:left;
+	padding-left: 10px;
+	padding-top: 8px;
+}
+#h3 {
+margin-left:30px;
+}
+#section-flip-2  {margin-left:7px;}
+#section-flip-3  {margin-left:7px;}
+#section-flip-4  {margin-left:7px;}
+#section-flip-5  {margin-left:7px;}
 </style>
+        <body>
+		
+		<div class="container">	
+			
+			<section>
+			<h3>Windows Miners Setup</h3>
+				<div class="tabs tabs-style-flip">
+					<nav>
+						<ul>
+							<li><a href="#section-flip-5"><span>Nvidia EWBF</span></a></li>
+							<li><a href="#section-flip-4"><span>Nvidia ZM</span></a></li>
+							<li><a href="#section-flip-2"><span>AMD Claymore</span></a></li>
+							<li><a href="#section-flip-3"><span>Bminer</span></a></li>
+							<li><a href="#section-flip-5"><span>Funakoshi miner</span></a></li>
+						</ul>
+					</nav>
+					<div class="content-wrap">
+						<section id="section-flip-1">
+<div class="boxStatsLeft" id="boxStatsLeft">
 
-<div id="holder">
-
-    <div id="menu">
-
-        {{? (function(){
-                if (!it.portalConfig.switching) return false;
-                for (var p in it.portalConfig.switching){
-                    if (it.portalConfig.switching[p].enabled)
-                        return true;
-                }
-                return false;
-            })()
-        }}
-        <div class="menuHeader">Coin-Switching Ports</div>
-        {{?}}
-
-        <div class="menuList">
-        {{ for (var p in it.portalConfig.switching){
-            if (!it.portalConfig.switching[p].enabled) continue;
-            var info = {
-                algo: p,
-                ports: {},
-                host: it.portalConfig.website.stratumHost
-            };
-            info.ports[it.portalConfig.switching[p].port] = {diff: it.portalConfig.switching[p].diff};
-            info = JSON.stringify(info).replace(/"/g, '&quot;');
-        }}
-            <a href="#" class="poolOption" data-info="{{=info}}">{{=p}}</a>
-        {{ } }}
-        </div>
-
-        <div class="menuHeader">Coins</div>
-        <div class="menuList" id="coinList">
-            {{ for(var pool in it.poolsConfigs) {
-                var info = JSON.stringify({
-                    coin: it.poolsConfigs[pool].coin,
-                    algo: it.poolsConfigs[pool].coin.algorithm,
-                    ports: it.poolsConfigs[pool].ports,
-                    host: it.portalConfig.website.stratumHost
-                }).replace(/"/g, '&quot;');
-            }}
-            <a href="#" class="poolOption" data-info="{{=info}}">{{=pool}}</a>
-            {{ } }}
-        </div>
-    </div>
-        <a href="#" class="miningOption" id="coinGlowTrigger">
-            <div class="miningOptionNum"></div>
-            <div class="miningOptionInstructions">
-                <div>Select a coin for connection details</div>
-                <div>Configurations for each coin are available for advanced miners</div>
-            </div>
-        </a>
-    </div>
+<div id="base_l" class="base_l">
+Configuration:<br><br>
+Username: COIN_NAME wallet address<br>
+Password: any<br>
+Server: SITE<br>
+Ports:<br>
+NON_SSL_PORT (low diff - CPU, GPU)<br>
+NICE_PORT (high diff - Nicehash, big farms)<br>
+SSL_PORT (SSL connection)
 </div>
 
-<a href="#" id="coinInfoBackground" class="hidden"></a>
+</div>
 
-<div id="coinInfo" class="hidden">
-    <a href="#" id="coinInfoClose">×</a>
-    <div><span class="coinInfoName"></span> Configuration:</div>
-    <div id="coinInfoRows">
-        <div id="coinInfoRowKeys">
-            <div>Username:</div>
-            <div>Password:</div>
-        </div>
-        <div id="coinInfoRowValues">
-            <div id="coinInfoUsername"></div>
-            <div>anything</div>
-        </div>
-         </div> 
-<center>8888 port default difficulty 0.5 (min 0.04) with autoadjust, for CPU, 1-20 GPU</center>
-<center>9999 port default difficulty 2.0 with autoadjust, for Miningrigrentials, Nicehash, >20 GPU rigs</center>
-<center><p>7777 port default difficulty 0.5 (min 0.04) with autoadjust, for CPU, 1-20 GPU with TLS/SSL support</p></center>
-    </div>
 
-<script>
+<div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Nvidia EWBF Miner Setup<br><br>
 
-    function showCoinConfig(info){
+miner --server SITE --user your_wallet.rig1 --pass any --port NON_SSL_PORT --eexit 3</div>
+</div>
+</section>
+						<section id="section-flip-2">
+<div class="boxStatsLeft" id="boxStatsLeft">
 
-        var htmlKeys = '<div class="coinInfoData">Algorithm:</div>';
-        var htmlValues = '<div class="coinInfoData">' + info.algo + '</div>';
+<div id="base_l" class="base_l">
+Configuration:<br><br>
+Username: COIN_NAME wallet address<br>
+Password: any<br>
+Server: SITE<br>
+Ports:<br>
+NON_SSL_PORT (low diff - CPU, GPU)<br>
+NICE_PORT (high diff - Nicehash, big farms)<br>
+SSL_PORT (SSL connection)
+</div>
 
-        for (var port in info.ports){
-            htmlKeys += '<div class="coinInfoData">URL <span class="coinInfoSubtle">(difficulty ' + info.ports[port].diff + ')</span>:</div>';
-            htmlValues += '<div class="coinInfoData">stratum+tcp://' + info.host + ':' + port + '</div>';
-        }
+</div>
 
-        if (info.coin)
-            $('#coinInfoUsername').text('your ' + info.coin.name + ' wallet address');
-        else
-            $('#coinInfoUsername').text('your public key');
-        $('.coinInfoData').remove();
-        $('#coinInfoRowKeys').append(htmlKeys);
-        $('#coinInfoRowValues').append(htmlValues);
-    }
 
-    $('#coinGlowTrigger').click(function(event){
-        event.preventDefault();
-        $('.menuList').addClass('glow');
-        setTimeout(function(){
-            $('.menuList').removeClass('glow');
-        }, 200);
-        return false;
-    });
+<div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Nvidia ZM Miner Setup<br><br>
 
-    $('.poolOption').click(function(event){
-        event.preventDefault();
-        showCoinConfig($(this).data('info'));
-        $('#coinInfoBackground,#coinInfo').removeClass('hidden');
-        $('#coinInfoBackground').css('opacity', 0.7);
-        return false;
-    });
+zm --server SITE --user your_wallet.rig1 --pass any --port NON_SSL_PORT</div>
+</div>
+</section>
+						<section id="section-flip-3">
+<div class="boxStatsLeft" id="boxStatsLeft">
 
-    $('#coinInfoBackground,#coinInfoClose').click(function(event){
-        event.preventDefault();
-        $('#coinInfoBackground,#coinInfo').addClass('hidden');
-        $('#coinInfoBackground').css('opacity', 0.0);
-        return false;
-    });
+<div id="base_l" class="base_l">
+Configuration:<br><br>
+Username: COIN_NAME wallet address<br>
+Password: any<br>
+Server: SITE<br>
+Ports:<br>
+NON_SSL_PORT (low diff - CPU, GPU)<br>
+NICE_PORT (high diff - Nicehash, big farms)<br>
+SSL_PORT (SSL connection)
+</div>
 
-    $('#nompAppDownload').click(function(event){
-        event.preventDefault();
-        alert('NOMP App development still in progress...');
-        return false;
-    });
-</script>
+</div>
+
+
+<div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">AMD Claymore Miner Setup<br><br>
+
+ZECMiner64.exe -zpool SITE : NON_SSL_PORT -zwal your_wallet.rig1 -zpsw any<br><br>
+SSL/TLS connection on SSL_PORT<br><br>
+ZECMiner64.exe -zpool ssl:// SITE : SSL_PORT -zwal your_wallet.rig1 -zpsw any<br>
+add "-allpools 1" to config if you have error: pool does not support Zcash address at login</div>
+
+</div>
+</section>
+						<section id="section-flip-4">
+<div class="boxStatsLeft" id="boxStatsLeft">
+
+<div id="base_l" class="base_l">
+Configuration:<br><br>
+Username: COIN_NAME wallet address<br>
+Password: any<br>
+Server: SITE<br>
+Ports:<br>
+NON_SSL_PORT (low diff - CPU, GPU)<br>
+NICE_PORT (high diff - Nicehash, big farms)<br>
+SSL_PORT (SSL connection)
+</div>
+
+</div>
+
+
+<div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Bminer Miner Setup<br><br>
+
+bminer -uri stratum://your_wallet.rig1@ SITE : NON_SSL_PORT</div>
+</div>						
+</section>
+						<section id="section-flip-5">
+<div class="boxStatsLeft" id="boxStatsLeft">
+
+<div id="base_l" class="base_l">
+Configuration:<br><br>
+Username: COIN_NAME wallet address<br>
+Password: any<br>
+Server: SITE<br>
+Ports:<br>
+NON_SSL_PORT (low diff - CPU, GPU)<br>
+NICE_PORT (high diff - Nicehash, big farms)<br>
+SSL_PORT (SSL connection)
+</div>
+
+</div>
+
+
+<div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Funakoshi Miner Setup<br><br>
+
+funakoshiMiner.exe -l SITE : NON_SSL_PORT -u YourWalletAddress.workerName</div>
+</div>						
+</section>
+					</div>
+				</div>
+			</section>
+			 
+            
+            
+				<section>
+				<h3>Linux Miners Setup</h3>
+				<div class="tabs tabs-style-flip">
+					<nav>
+						<ul>
+							<li><a href="#section-flip-5"><span>Nvidia EWBF</span></a></li>
+							<li><a href="#section-flip-4"><span>Nvidia ZM</span></a></li>
+							<li><a href="#section-flip-2"><span>AMD Optiminer</span></a></li>
+							<li><a href="#section-flip-3"><span>Bminer</span></a></li>
+							<li><a href="#section-flip-5"><span>Funakoshi miner</span></a></li>
+						</ul>
+					</nav>
+					<div class="content-wrap">
+						<section id="section-flip-1"><p>1</p></section>
+						<section id="section-flip-2"><p>2</p></section>
+						<section id="section-flip-3"><p>3</p></section>
+						<section id="section-flip-4"><p>4</p></section>
+						<section id="section-flip-5"><p>5</p></section>
+					</div>
+				</div>
+			</section>
+			
+			
+		</div>
+		
+		<script>
+			(function() {
+
+				[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+					new CBPFWTabs( el );
+				});
+
+			})();
+		</script>
+	</body>
+
