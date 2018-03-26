@@ -58,6 +58,7 @@
 </script>
 	
 <style>
+
 a {
 	color: #2CC185;
 	text-decoration: none;
@@ -142,9 +143,7 @@ a:hover, a:focus {
 .content-wrap {
 	position: relative;
 }
-#section-flip-1{
 
-}
 
 .content-wrap section {
 	display: none;
@@ -220,12 +219,12 @@ a:hover, a:focus {
 	background: #fff;
 }
 
-h3 {
+.h3 {
     display: block;
     font-size: 1.17em;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
+    -webkit-margin-start: 20px;
     -webkit-margin-end: 0px;
     font-weight: bold;
 }
@@ -237,44 +236,36 @@ h3 {
 
 
     #boxStatsLeft{
-     
+margin-top: -8.5px;    
 border-radius: 8px;
-opacity:0.5;
-filter:alpha(opacity=50);
--moz-opacity:O.2;
-background-color: #00CED1; 
+background: rgba( 0, 170, 255, 0.3);
 width:340px; 
 height:199px; 
 margin-left: -10px;
-z-index:-1;
+
     }
 	    #boxStatsRight{
      margin-top: -199px;       
 border-radius: 8px;
-opacity:0.3;
-filter:alpha(opacity=50);
--moz-opacity:O.S;
-background-color:#000000; 
+background: rgba( 0, 170, 255, 0.3);
 width:71%; 
 height:199px; 
 margin-left: 340px;
-z-index:-1;
+
     }
 .base_l{
     color: black;
 	position:left;
 	padding-left: 10px;
-	padding-top: 8px;
+	
 }
 .base_r{
-    color: white;
+    color: black;
 	position:left;
 	padding-left: 10px;
 	padding-top: 8px;
 }
-#h3 {
-margin-left:30px;
-}
+.ttx { margin-left:30px;}
 
 </style>
         <body>
@@ -282,7 +273,9 @@ margin-left:30px;
 		<div class="container">	
 			
 			<section>
+			<div class="ttx" id="ttx">
 			<h3>Windows Miners Setup</h3>
+			</div>
 				<div class="tabs tabs-style-flip">
 					<nav>
 						<ul>
@@ -355,7 +348,7 @@ SSL_PORT (SSL connection)
 </div>
 
 
-<div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">AMD Claymore Miner Setup<br><br>
+<div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">AMD Claymore Miner Setup<br>
 
 ZECMiner64.exe -zpool SITE : NON_SSL_PORT -zwal your_wallet.rig1 -zpsw any<br><br>
 SSL/TLS connection on SSL_PORT<br><br>
@@ -415,7 +408,9 @@ funakoshiMiner.exe -l SITE : NON_SSL_PORT -u YourWalletAddress.workerName</div>
             
             
 				<section>
+				<div class="ttx" id="ttx">
 				<h3>Linux Miners Setup</h3>
+				</div>
 				<div class="tabs tabs-style-flip">
 					<nav>
 						<ul>
