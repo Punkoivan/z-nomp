@@ -351,9 +351,9 @@ SSL_PORT (SSL connection)
 
 <div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">AMD Claymore Miner Setup<br>
 
-ZECMiner64.exe -zpool SITE : NON_SSL_PORT -zwal your_wallet.rig1 -zpsw any<br><br>
+ZECMiner64.exe -zpool SITE:NON_SSL_PORT -zwal your_wallet.rig1 -zpsw any<br><br>
 SSL/TLS connection on SSL_PORT<br><br>
-ZECMiner64.exe -zpool ssl:// SITE : SSL_PORT -zwal your_wallet.rig1 -zpsw any<br>
+ZECMiner64.exe -zpool ssl://SITE:SSL_PORT -zwal your_wallet.rig1 -zpsw any<br>
 add "-allpools 1" to config if you have error: pool does not support Zcash address at login</div>
 
 </div>
@@ -377,7 +377,7 @@ SSL_PORT (SSL connection)
 
 <div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Bminer Miner Setup<br><br>
 
-bminer -uri stratum://your_wallet.rig1@ SITE : NON_SSL_PORT</div>
+bminer -uri stratum://your_wallet.rig1@SITE:NON_SSL_PORT</div>
 </div>						
 </section>
 						<section id="section-flip-5">
@@ -399,7 +399,7 @@ SSL_PORT (SSL connection)
 
 <div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Funakoshi Miner Setup<br><br>
 
-funakoshiMiner.exe -l SITE : NON_SSL_PORT -u YourWalletAddress.workerName</div>
+funakoshiMiner.exe -l SITE:NON_SSL_PORT -u YourWalletAddress.workerName</div>
 </div>						
 </section>
 					</div>
@@ -486,7 +486,7 @@ SSL_PORT (SSL connection)
 
 <div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">AMD Optiminer Miner Setup<br><br>
 
-./optiminer -zcash -s SITE : NON_SSL_PORT -u your_wallet.rig1 -p any</div>
+./optiminer -zcash -s SITE:NON_SSL_PORT -u your_wallet.rig1 -p any</div>
 
 </div>
 						</section>
@@ -509,9 +509,9 @@ SSL_PORT (SSL connection)
 
 <div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Bminer Miner Setup<br><br>
 
-./bminer -uri stratum://your_wallet.rig1@ SITE : NON_SSL_PORT<br><br>
+./bminer -uri stratum://your_wallet.rig1@SITE:NON_SSL_PORT<br><br>
 SSL/TLS connection on port SSL_PORT <br>
-./bminer -uri stratum+ssl://your_wallet.rig1@ SITE : SSL_PORT</div>
+./bminer -uri stratum+ssl://your_wallet.rig1@SITE:SSL_PORT</div>
 </div>					
 						</section>
 						<section id="section-flip-5">
@@ -533,7 +533,7 @@ SSL_PORT (SSL connection)
 
 <div class="boxStatsRight" id="boxStatsRight"><div id="base_r" class="base_r">Funakoshi Miner Setup<br><br>
 
-./funakoshiMiner -l SITE : NON_SSL_PORT -u YourWalletAddress.workerName</div>
+./funakoshiMiner -l SITE:NON_SSL_PORT -u YourWalletAddress.workerName</div>
 </div>	
 						</section>
 					</div>
