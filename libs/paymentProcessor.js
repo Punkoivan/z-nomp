@@ -250,10 +250,10 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        //if (opidCount > 0) {
-        //   logger.warning(logSystem, logComponent, 'sendTToZ is waiting, too many z_sendmany operations already in progress.');
-        //    return;
-        //}
+        if (opidCount > 0) {
+           logger.warning(logSystem, logComponent, 'sendTToZ is waiting, too many z_sendmany operations already in progress.');
+            return;
+        }
 
         var amount = satoshisToCoins(tBalance - 10000);
         var params = [poolOptions.address, [{'address': poolOptions.zAddress, 'amount': amount}]];
@@ -289,10 +289,10 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        //if (opidCount > 0) {
-        //    logger.warning(logSystem, logComponent, 'sendZToT is waiting, too many z_sendmany operations already in progress.');
-        //    return;
-        //}
+        if (opidCount > 0) {
+            logger.warning(logSystem, logComponent, 'sendZToT is waiting, too many z_sendmany operations already in progress.');
+            return;
+        }
 
         var amount = satoshisToCoins(zBalance - 10000);
         // unshield no more than 12500 BTCZ at a time
