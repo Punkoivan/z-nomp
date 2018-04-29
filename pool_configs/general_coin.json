@@ -34,7 +34,7 @@
         "_comment_paymentMode":"prop, pplnt",
         "paymentInterval": 20,
         "minimumPayment": COIN_MINIMUM_PAY,
-        "maxBlocksPerPayment": 3,
+        "maxBlocksPerPayment": 1,
         "daemon": {
             "host": "DAEMON_HOST",
             "port": DAEMON_PORT,
