@@ -22,8 +22,8 @@
        },
     "tlsOptions": {
         "enabled": ENABLE_TLS,
-        "serverKey":"/root/privkey.pem",
-        "serverCert":"/root/fullchain.pem",
+        "serverKey":"/root/ssl/privkey1.pem",
+        "serverCert":"/root/ssl/fullchain1.pem",
         "ca":""
     },
 
